@@ -1,0 +1,14 @@
+/*
+Theme Name: Case Study Theme
+Theme URI: https://case-study-tabs.local
+Author: Idan Edri
+Description: Custom WordPress theme featuring a fully manageable ACF Gutenberg "Case Study Tabs" block, built from the Figma design. Responsive breakpoints: 1920 / 1560 / 640.
+Version: 1.0.0
+Requires at least: 6.0
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: case-study-theme
+*/
+
+/* Compiled styles are enqueued from assets/css/main.css */

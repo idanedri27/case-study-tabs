@@ -1,0 +1,19 @@
+{
+	"name": "cst/case-study-tabs",
+	"title": "Case Study Tabs",
+	"description": "Tabbed case-study section: company tabs with quote, solutions, stats and video. Fully manageable via ACF fields.",
+	"category": "design",
+	"icon": "index-card",
+	"keywords": [ "case study", "tabs", "testimonial" ],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"supports": {
+		"align": false,
+		"anchor": true,
+		"jsx": false
+	},
+	"style": [ "cst-main" ],
+	"viewScript": [ "cst-case-study-tabs" ]
+}

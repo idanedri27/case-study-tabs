@@ -1,0 +1,34 @@
+// ---------------------------------------------------------------------------
+// Minimal base — the theme ships a single custom block, keep the rest lean
+// ---------------------------------------------------------------------------
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: $font-base;
+	background: $color-bg;
+	color: $color-white;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+img,
+svg,
+video {
+	display: block;
+	max-width: 100%;
+}
+
+button {
+	font: inherit;
+	background: none;
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+	color: inherit;
+}

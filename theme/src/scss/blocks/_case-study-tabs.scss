@@ -1,0 +1,815 @@
+// ---------------------------------------------------------------------------
+// Case Study Tabs block
+// Desktop design: 1920px (content 1600px) | Laptop: 1560px | Mobile: 640px
+// ---------------------------------------------------------------------------
+
+.cst-tabs {
+	position: relative;
+	background: $color-bg;
+	padding: 80px 160px;
+	overflow: hidden;
+
+	&__inner {
+		max-width: 1600px;
+		margin: 0 auto;
+	}
+
+	// ---------------------------------------------------------------- Title
+	&__title {
+		margin: 0 0 64px;
+		text-align: center;
+		font-family: $font-base;
+		font-weight: 400;
+		font-size: 50px;
+		line-height: 60px;
+		letter-spacing: -2px;
+		color: $color-white;
+	}
+
+	&__title-highlight {
+		position: relative;
+		display: inline-block;
+		font-weight: 700;
+	}
+
+	&__title-underline {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: -14px;
+		width: 100%;
+		height: 18px;
+	}
+
+	// --------------------------------------------------------------- Tab bar
+	&__tabbar-wrap {
+		position: relative;
+	}
+
+	&__tabbar {
+		display: flex;
+		align-items: stretch;
+		height: 80px;
+		border-radius: 10px;
+		background: linear-gradient(
+			90deg,
+			rgba(124, 156, 187, 0.14) 0%,
+			rgba(124, 156, 187, 0.05) 55%,
+			rgba(124, 156, 187, 0) 100%
+		);
+	}
+
+	&__tab {
+		position: relative;
+		flex: 1 1 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0 24px;
+		transition: background-color 0.25s ease;
+
+		// Thin separators between tabs
+		& + &::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 18px;
+			bottom: 18px;
+			width: 1px;
+			background: $color-divider;
+		}
+
+		&:hover:not(.is-active) {
+			background: radial-gradient(
+				60% 130% at 50% 100%,
+				rgba(104, 242, 215, 0.16) 0%,
+				rgba(104, 242, 215, 0) 100%
+			);
+		}
+
+		&.is-active {
+			background: linear-gradient(180deg, $color-tab-active-top 0%, $color-tab-active-bottom 100%);
+			border-radius: 6px;
+
+			&::before,
+			+ .cst-tabs__tab::before {
+				display: none;
+			}
+
+			&::after {
+				content: '';
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				height: 2px;
+				background: linear-gradient(90deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 90%);
+			}
+		}
+	}
+
+	&__tab-logo {
+		max-height: 34px;
+		width: auto;
+		object-fit: contain;
+		opacity: 0.85;
+		transition: opacity 0.25s ease;
+
+		.is-active & {
+			opacity: 1;
+		}
+	}
+
+	&__tab-name {
+		font-size: 20px;
+		font-weight: 700;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+	}
+
+	// ---------------------------------------------------------------- Panels
+	&__panels {
+		margin-top: 24px;
+	}
+
+	&__panel {
+		&[hidden] {
+			display: none;
+		}
+	}
+
+	// ------------------------------------------------------------- Main card
+	&__card {
+		position: relative;
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(360px, 440px) 253px;
+		gap: 48px;
+		align-items: start;
+		padding: 64px 60px;
+		background: linear-gradient(135deg, $color-card-top 0%, $color-card-bottom 100%);
+		border: 1px solid $color-card-border;
+		border-radius: 48px 24px 24px 24px;
+		box-shadow: 0 0 90px rgba(104, 242, 215, 0.07);
+	}
+
+	// ------------------------------------------------------------- Quote col
+	&__quote-col {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	&__quote-mark {
+		width: 64px;
+		margin-bottom: 32px;
+
+		svg {
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	&__quote {
+		margin: 0 0 48px;
+
+		p {
+			margin: 0;
+			font-size: 30px;
+			font-weight: 400;
+			line-height: 42px;
+			color: $color-white;
+		}
+	}
+
+	&__author {
+		display: flex;
+		align-items: center;
+		gap: 28px;
+	}
+
+	&__author-logo {
+		max-height: 40px;
+		width: auto;
+	}
+
+	&__author-meta {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__author-name {
+		font-family: $font-script;
+		font-weight: 700;
+		font-size: 25px;
+		line-height: 27px;
+		color: $color-white;
+	}
+
+	&__author-role {
+		margin-top: 4px;
+		font-size: 15px;
+		line-height: 22px;
+		color: $color-soft;
+	}
+
+	// CTA pill — mobile-first element, hidden on desktop like the Figma
+	&__cta {
+		display: none;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+		margin-top: 32px;
+		padding: 8px 8px 8px 24px;
+		min-height: 56px;
+		border-radius: 999px;
+		background: rgba(255, 255, 255, 0.08);
+		color: $color-white;
+		font-size: 18px;
+		font-weight: 500;
+		text-decoration: none;
+	}
+
+	&__cta-arrow {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 42px;
+		height: 42px;
+		border-radius: 50%;
+		background: rgba(255, 255, 255, 0.16);
+
+		svg {
+			width: 18px;
+			height: 18px;
+		}
+	}
+
+	// -------------------------------------------------------------- Data col
+	&__data-col {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	&__data-card {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 24px;
+		padding: 20px 28px;
+		border-radius: 12px;
+		background: linear-gradient(135deg, $color-inner-top 0%, $color-inner-bottom 100%);
+	}
+
+	&__data-label {
+		position: relative;
+		font-size: 16px;
+		color: $color-soft;
+		white-space: nowrap;
+
+		&::after {
+			content: '';
+			position: absolute;
+			left: 0;
+			bottom: -6px;
+			width: 38px;
+			height: 2px;
+			background: $color-accent;
+			border-radius: 2px;
+		}
+	}
+
+	&__solutions {
+		display: flex;
+		align-items: flex-start;
+		gap: 24px;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	&__solution {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 6px;
+
+		img {
+			height: 34px;
+			width: auto;
+		}
+
+		span {
+			font-size: 11px;
+			line-height: 14px;
+			color: $color-muted;
+		}
+	}
+
+	&__crm {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 6px;
+
+		img {
+			height: 34px;
+			width: auto;
+		}
+
+		span {
+			font-size: 11px;
+			line-height: 14px;
+			color: $color-muted;
+		}
+	}
+
+	// ----------------------------------------------------------------- Stats
+	&__stats {
+		display: flex;
+		margin-top: 40px;
+	}
+
+	&__stat {
+		flex: 1 1 0;
+		padding: 0 24px;
+
+		&:first-child {
+			padding-left: 0;
+		}
+
+		& + & {
+			border-left: 1px solid $color-divider;
+		}
+	}
+
+	&__stat-value {
+		display: block;
+		font-size: 36px;
+		font-weight: 700;
+		line-height: 44px;
+		letter-spacing: -1px;
+		color: $color-accent;
+	}
+
+	&__stat-label {
+		display: block;
+		margin-top: 8px;
+		font-size: 13px;
+		line-height: 18px;
+		color: $color-soft;
+	}
+
+	// ----------------------------------------------------------------- Video
+	&__video-col {
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	&__video-card {
+		position: relative;
+		width: 253px;
+		margin: 0;
+		border-radius: 16px;
+		overflow: hidden;
+		background: #000;
+	}
+
+	&__video {
+		width: 100%;
+		height: 420px;
+		object-fit: cover;
+	}
+
+	&__video-brands {
+		position: absolute;
+		top: 8px;
+		left: 8px;
+		right: 8px;
+		z-index: 2;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 36px;
+		padding: 6px 12px;
+		border-radius: 10px;
+		background: $color-chip;
+
+		img {
+			max-height: 20px;
+			width: auto;
+		}
+	}
+
+	&__video-play {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		z-index: 3;
+		transform: translate(-50%, -50%);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 72px;
+		height: 72px;
+		border-radius: 50%;
+		background: rgba(255, 255, 255, 0.35);
+		backdrop-filter: blur(6px);
+		color: $color-white;
+		transition: transform 0.2s ease, background-color 0.2s ease;
+
+		svg {
+			width: 30px;
+			height: 30px;
+			margin-left: 3px;
+		}
+
+		&:hover {
+			transform: translate(-50%, -50%) scale(1.06);
+			background: rgba(255, 255, 255, 0.5);
+		}
+
+		.is-playing & {
+			opacity: 0;
+			pointer-events: none;
+		}
+	}
+
+	&__video-person {
+		position: absolute;
+		bottom: 8px;
+		left: 8px;
+		right: 8px;
+		z-index: 2;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 8px 12px;
+		border-radius: 10px;
+		background: $color-chip;
+		text-align: center;
+	}
+
+	&__video-person-name {
+		font-family: $font-serif;
+		font-size: 19px;
+		line-height: 24px;
+		color: $color-ink;
+	}
+
+	&__video-person-role {
+		font-size: 10px;
+		line-height: 14px;
+		color: rgba(11, 37, 69, 0.75);
+	}
+
+	// =======================================================================
+	// Laptop — 1560 design
+	// =======================================================================
+	@media (max-width: $bp-laptop) {
+		padding: 64px 100px;
+
+		&__title {
+			font-size: 42px;
+			line-height: 52px;
+			margin-bottom: 48px;
+		}
+
+		&__tabbar {
+			height: 68px;
+		}
+
+		&__tab-logo {
+			max-height: 28px;
+		}
+
+		&__card {
+			grid-template-columns: minmax(0, 1fr) minmax(320px, 420px) 220px;
+			gap: 40px;
+			padding: 48px 44px;
+			border-radius: 40px 20px 20px 20px;
+		}
+
+		&__quote {
+			margin-bottom: 36px;
+
+			p {
+				font-size: 24px;
+				line-height: 36px;
+			}
+		}
+
+		&__quote-mark {
+			width: 54px;
+			margin-bottom: 24px;
+		}
+
+		&__stat-value {
+			font-size: 30px;
+			line-height: 38px;
+		}
+
+		&__video-card {
+			width: 220px;
+		}
+
+		&__video {
+			height: 370px;
+		}
+	}
+
+	// =======================================================================
+	// Tablet — graceful wrap before mobile
+	// =======================================================================
+	@media (max-width: $bp-tablet) {
+		padding: 56px 48px;
+
+		&__card {
+			grid-template-columns: minmax(0, 1fr) 220px;
+		}
+
+		&__quote-col {
+			grid-column: 1 / -1;
+		}
+	}
+
+	// =======================================================================
+	// Mobile — 640 design (layout designed at 360)
+	// =======================================================================
+	@media (max-width: $bp-mobile) {
+		padding: 40px 0 48px;
+
+		&__inner {
+			max-width: none;
+		}
+
+		&__title {
+			padding: 0 20px;
+			margin-bottom: 28px;
+			font-size: 28px;
+			line-height: 36px;
+			letter-spacing: -1px;
+
+			// Figma mobile: "Trusted" drops to its own line, no brush underline
+			display: flex;
+			flex-direction: column;
+			gap: 2px;
+		}
+
+		&__title-underline {
+			display: none;
+		}
+
+		// Tab bar becomes a one-tab-wide synced slider strip.
+		// Content column is capped so in-between widths (640-767) stay tidy.
+		&__tabbar-wrap {
+			width: min(100% - 40px, 480px);
+			margin: 0 auto;
+		}
+
+		&__tabbar {
+			height: 56px;
+			overflow-x: auto;
+			scroll-snap-type: x mandatory;
+			scrollbar-width: none;
+			border-radius: 8px;
+
+			&::-webkit-scrollbar {
+				display: none;
+			}
+		}
+
+		&__tab {
+			flex: 0 0 100%;
+			scroll-snap-align: start;
+
+			& + &::before {
+				display: none;
+			}
+
+			&.is-active {
+				border-radius: 8px;
+			}
+		}
+
+		&__tab-logo {
+			max-height: 26px;
+		}
+
+		// Panels: horizontal slider, whole panel = one slide with side peek
+		&__panels {
+			display: flex;
+			gap: 12px;
+			margin-top: 20px;
+			padding: 0 20px;
+			overflow-x: auto;
+			scroll-snap-type: x mandatory;
+			scrollbar-width: none;
+
+			&::-webkit-scrollbar {
+				display: none;
+			}
+		}
+
+		&__panel {
+			flex: 0 0 100%;
+			scroll-snap-align: center;
+
+			&[hidden] {
+				display: block;
+			}
+		}
+
+		// Card: vertical stack of rounded cards, transparent wrapper
+		&__card {
+			display: flex;
+			flex-direction: column;
+			align-items: stretch;
+			gap: 12px;
+			max-width: 480px;
+			margin: 0 auto;
+			padding: 0;
+			background: none;
+			border: 0;
+			border-radius: 0;
+			box-shadow: none;
+		}
+
+		// --- Quote card ---
+		&__quote-col {
+			align-items: center;
+			text-align: center;
+			padding: 28px 20px 20px;
+			border-radius: 16px;
+			background: linear-gradient(160deg, $color-inner-top 0%, $color-card-bottom 100%);
+		}
+
+		&__quote-mark {
+			width: 48px;
+			margin-bottom: 20px;
+		}
+
+		&__quote {
+			margin-bottom: 16px;
+
+			p {
+				font-size: 18px;
+				line-height: 27px;
+			}
+		}
+
+		&__author {
+			flex-direction: column;
+			gap: 2px;
+		}
+
+		&__author-logo {
+			display: none; // Figma mobile shows name/role only
+		}
+
+		&__author-name {
+			font-size: 22px;
+			line-height: 26px;
+		}
+
+		&__author-role {
+			margin-top: 0;
+			font-size: 13px;
+		}
+
+		&__cta {
+			display: flex;
+		}
+
+		// --- Video card ---
+		&__video-col {
+			order: 1;
+			justify-content: stretch;
+		}
+
+		&__video-card {
+			width: 100%;
+			border-radius: 12px;
+		}
+
+		// Figma mobile: collapsed 16:10 with play overlay, expands to 9:16 while playing
+		&__video {
+			height: auto;
+			aspect-ratio: 16 / 10;
+			transition: aspect-ratio 0.45s ease;
+
+			.is-playing & {
+				aspect-ratio: 9 / 16;
+			}
+		}
+
+		&__video-brands {
+			opacity: 0;
+			transition: opacity 0.3s ease;
+
+			.is-playing & {
+				opacity: 1;
+			}
+		}
+
+		&__video-person {
+			opacity: 0;
+			transition: opacity 0.3s ease;
+
+			.is-playing & {
+				opacity: 1;
+			}
+		}
+
+		// --- Data cards ---
+		&__data-col {
+			order: 2;
+			gap: 12px;
+		}
+
+		&__data-card {
+			flex-direction: column;
+			gap: 16px;
+			padding: 20px 16px;
+			border-radius: 12px;
+
+			&--crm {
+				display: none; // rendered inside the mobile grid instead
+			}
+		}
+
+		&__data-label {
+			white-space: normal;
+			text-align: center;
+
+			&::after {
+				left: 50%;
+				transform: translateX(-50%);
+			}
+		}
+
+		&__solutions {
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 18px;
+		}
+
+		// --- Stats become a 2x2 grid with the CRM card ---
+		&__stats {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 12px;
+			margin-top: 0;
+			order: 3;
+		}
+
+		&__stat {
+			padding: 20px 16px;
+			border-radius: 12px;
+			background: linear-gradient(160deg, $color-inner-top 0%, $color-inner-bottom 100%);
+
+			& + & {
+				border-left: 0;
+			}
+		}
+
+		&__stat-value {
+			font-size: 28px;
+			line-height: 34px;
+		}
+	}
+}
+
+// Mobile: CRM card duplicated into the stats grid via render order — handled
+// with a dedicated modifier rendered by PHP (see render.php mobile grid).
+.cst-tabs__mobile-crm {
+	display: none;
+
+	@media (max-width: $bp-mobile) {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 8px;
+		padding: 20px 16px;
+		border-radius: 12px;
+		background: linear-gradient(160deg, #1a4051 0%, #183a4e 100%);
+
+		img {
+			height: 34px;
+			width: auto;
+		}
+
+		strong {
+			font-size: 15px;
+			color: #fff;
+			font-weight: 700;
+		}
+
+		span {
+			font-size: 12px;
+			color: rgba(255, 255, 255, 0.85);
+		}
+	}
+}

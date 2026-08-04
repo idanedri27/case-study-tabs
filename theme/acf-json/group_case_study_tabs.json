@@ -1,0 +1,256 @@
+{
+    "key": "group_case_study_tabs",
+    "title": "Case Study Tabs Block",
+    "fields": [
+        {
+            "key": "field_cst_section_title",
+            "label": "Section Title",
+            "name": "section_title",
+            "type": "text",
+            "instructions": "Main heading, e.g. \"Loved. Adopted.\"",
+            "required": 1,
+            "default_value": "Loved. Adopted.",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_cst_section_title_highlight",
+            "label": "Highlighted Word",
+            "name": "section_title_highlight",
+            "type": "text",
+            "instructions": "Bold word with the brush underline, e.g. \"Trusted\"",
+            "required": 0,
+            "default_value": "Trusted",
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_cst_tabs",
+            "label": "Tabs",
+            "name": "tabs",
+            "type": "repeater",
+            "instructions": "Each row is one company tab with its own content.",
+            "required": 1,
+            "min": 1,
+            "layout": "block",
+            "button_label": "Add Tab",
+            "collapsed": "field_cst_tab_name",
+            "sub_fields": [
+                {
+                    "key": "field_cst_tab_name",
+                    "label": "Company Name",
+                    "name": "tab_name",
+                    "type": "text",
+                    "instructions": "Used for accessibility and admin display, e.g. \"Intuit\"",
+                    "required": 1,
+                    "wrapper": { "width": "40" }
+                },
+                {
+                    "key": "field_cst_tab_logo",
+                    "label": "Tab Logo",
+                    "name": "tab_logo",
+                    "type": "image",
+                    "instructions": "White/light logo shown inside the tab (SVG or PNG)",
+                    "required": 1,
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "wrapper": { "width": "30" }
+                },
+                {
+                    "key": "field_cst_tab_quote_logo",
+                    "label": "Quote Logo",
+                    "name": "quote_logo",
+                    "type": "image",
+                    "instructions": "Logo displayed under the quote (defaults to Tab Logo if empty)",
+                    "required": 0,
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "wrapper": { "width": "30" }
+                },
+                {
+                    "key": "field_cst_tab_quote",
+                    "label": "Quote",
+                    "name": "quote",
+                    "type": "textarea",
+                    "required": 1,
+                    "rows": 4,
+                    "new_lines": ""
+                },
+                {
+                    "key": "field_cst_tab_author_name",
+                    "label": "Author Name",
+                    "name": "author_name",
+                    "type": "text",
+                    "instructions": "Signature-style name, e.g. \"Johnathan Smith Cole\"",
+                    "wrapper": { "width": "34" }
+                },
+                {
+                    "key": "field_cst_tab_author_role",
+                    "label": "Author Role",
+                    "name": "author_role",
+                    "type": "text",
+                    "instructions": "e.g. \"Senior Director, GTM Operations\"",
+                    "wrapper": { "width": "33" }
+                },
+                {
+                    "key": "field_cst_tab_case_study_link",
+                    "label": "Case Study Link",
+                    "name": "case_study_link",
+                    "type": "link",
+                    "instructions": "\"Case Study\" button (shown on mobile)",
+                    "return_format": "array",
+                    "wrapper": { "width": "33" }
+                },
+                {
+                    "key": "field_cst_tab_solutions_label",
+                    "label": "Solutions Label",
+                    "name": "solutions_label",
+                    "type": "text",
+                    "default_value": "Solutions used",
+                    "wrapper": { "width": "40" }
+                },
+                {
+                    "key": "field_cst_tab_solutions",
+                    "label": "Solutions",
+                    "name": "solutions",
+                    "type": "repeater",
+                    "layout": "table",
+                    "button_label": "Add Solution",
+                    "wrapper": { "width": "60" },
+                    "sub_fields": [
+                        {
+                            "key": "field_cst_tab_solution_icon",
+                            "label": "Icon",
+                            "name": "icon",
+                            "type": "image",
+                            "return_format": "array",
+                            "preview_size": "thumbnail",
+                            "wrapper": { "width": "40" }
+                        },
+                        {
+                            "key": "field_cst_tab_solution_label",
+                            "label": "Label",
+                            "name": "label",
+                            "type": "text",
+                            "wrapper": { "width": "60" }
+                        }
+                    ]
+                },
+                {
+                    "key": "field_cst_tab_crm_label",
+                    "label": "CRM Label",
+                    "name": "crm_label",
+                    "type": "text",
+                    "default_value": "CRM used",
+                    "wrapper": { "width": "34" }
+                },
+                {
+                    "key": "field_cst_tab_crm_icon",
+                    "label": "CRM Icon",
+                    "name": "crm_icon",
+                    "type": "image",
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "wrapper": { "width": "33" }
+                },
+                {
+                    "key": "field_cst_tab_crm_name",
+                    "label": "CRM Name",
+                    "name": "crm_name",
+                    "type": "text",
+                    "instructions": "e.g. \"Salesforce\"",
+                    "wrapper": { "width": "33" }
+                },
+                {
+                    "key": "field_cst_tab_stats",
+                    "label": "Stats",
+                    "name": "stats",
+                    "type": "repeater",
+                    "instructions": "Up to 3 highlighted metrics",
+                    "layout": "table",
+                    "max": 3,
+                    "button_label": "Add Stat",
+                    "sub_fields": [
+                        {
+                            "key": "field_cst_tab_stat_value",
+                            "label": "Value",
+                            "name": "value",
+                            "type": "text",
+                            "instructions": "e.g. \"100%\"",
+                            "wrapper": { "width": "40" }
+                        },
+                        {
+                            "key": "field_cst_tab_stat_label",
+                            "label": "Label",
+                            "name": "label",
+                            "type": "text",
+                            "instructions": "e.g. \"Adoption without resistance\"",
+                            "wrapper": { "width": "60" }
+                        }
+                    ]
+                },
+                {
+                    "key": "field_cst_tab_video",
+                    "label": "Video File",
+                    "name": "video",
+                    "type": "file",
+                    "instructions": "MP4/WebM video of the customer",
+                    "return_format": "array",
+                    "mime_types": "mp4,webm,mov",
+                    "wrapper": { "width": "34" }
+                },
+                {
+                    "key": "field_cst_tab_video_poster",
+                    "label": "Video Poster",
+                    "name": "video_poster",
+                    "type": "image",
+                    "instructions": "Image shown before the video plays",
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "wrapper": { "width": "33" }
+                },
+                {
+                    "key": "field_cst_tab_video_brands",
+                    "label": "Video Top Logos",
+                    "name": "video_brands",
+                    "type": "image",
+                    "instructions": "Light strip above the video (e.g. dealhub + liferaft)",
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "wrapper": { "width": "33" }
+                },
+                {
+                    "key": "field_cst_tab_video_person_name",
+                    "label": "Video Person Name",
+                    "name": "video_person_name",
+                    "type": "text",
+                    "instructions": "e.g. \"Colin Tanner\"",
+                    "wrapper": { "width": "50" }
+                },
+                {
+                    "key": "field_cst_tab_video_person_role",
+                    "label": "Video Person Role",
+                    "name": "video_person_role",
+                    "type": "text",
+                    "instructions": "e.g. \"Revenue Operations Manager\"",
+                    "wrapper": { "width": "50" }
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "cst\/case-study-tabs"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "show_in_rest": 0,
+    "modified": 1754250000
+}

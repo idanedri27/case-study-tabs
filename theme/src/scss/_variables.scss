@@ -1,0 +1,35 @@
+// ---------------------------------------------------------------------------
+// Design tokens — sampled from the Figma export (HP_Case study tabs)
+// ---------------------------------------------------------------------------
+
+// Fonts
+$font-base: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+$font-script: 'Caveat', cursive;
+$font-serif: 'DM Serif Display', Georgia, serif;
+
+// Colors
+$color-bg: #07102f;            // section background
+$color-white: #ffffff;
+$color-accent: #68f2d7;        // quote mark, stat values
+$color-accent-alt: #6ddfeb;    // brush underline
+$color-chip: #b0f4e7;          // light teal strips on video card
+$color-ink: #0b2545;           // dark text on light chips
+
+$color-card-top: #132d45;      // main card gradient start
+$color-card-bottom: #10263f;   // main card gradient end
+$color-card-border: #1d3a55;
+
+$color-inner-top: #1a4051;     // inner data cards gradient
+$color-inner-bottom: #183a4e;
+
+$color-tab-active-top: #2a6270;
+$color-tab-active-bottom: #1f4d5c;
+
+$color-muted: #7c8b99;         // small gray labels (CPQ, DealRoom)
+$color-soft: rgba(255, 255, 255, 0.85);
+$color-divider: rgba(255, 255, 255, 0.14);
+
+// Breakpoints (design screens: 1920 / 1560 / 640)
+$bp-laptop: 1600px;   // <= laptop styles (1560 design)
+$bp-tablet: 1100px;   // graceful wrap between laptop and mobile
+$bp-mobile: 767px;    // <= mobile styles (640 design)
